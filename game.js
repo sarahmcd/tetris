@@ -1,19 +1,28 @@
 var xPos;
 var yPos;
 var xLen;
+var currSourceX;
+var currSourceY;
+var currSourceWid;
+var currSourceLen;
 var currId;
+var currPos;
 
 function gameLoop(){
-	console.log("1");
 	setUp();
 	animLoop();
 }
 
 function setUp(){
-	console.log("2");
 	xPos = 0;
 	yPos = 0;
 	xLen = 72;
+	currSourceX = 12;
+	currSourceY = 12;
+	currSourceWid = 72;
+	currSourceLen = 48;
+	currId = 1;
+	currPos = 1;
 }
 
 function animLoop(){
@@ -58,34 +67,110 @@ function changePos(){
 
 function reposA(){
 	if (currPos == 1){
+		currSourceX = 12;
+		currSourceY = 84;
+		currSourceWid = 48;
+		currSourceLen = 72;
 		currPos = 2;
 	}
 	else if (currPos == 2){
+		currSourceX = 12;
+		currSourceY = 180;
+		currSourceWid = 72;
+		currSourceLen = 48;
 		currPos = 3;
 	}
 	else if (currPos == 3){
+		currSourceX = 36;
+		currSourceY = 252;
+		currSourceWid = 48;
+		currSourceLen = 72;
 		currPos = 4;
 	}
 	else {
+		currSourceX = 12;
+		currSourceY = 12;
+		currSourceWid = 72;
+		currSourceLen = 48;
+		currPos = 1;
+	}
+}
+
+function reposB(){
+	if (currPos == 1){
+		currSourceX = 108;
+		currSourceY = 12;
+		currSourceWid = 72;
+		currSourceLen = 48;
+		currPos = 2;
+	}
+	else if (currPos == 2){
+		currSourceX = 108;
+		currSourceY = 84;
+		currSourceWid = 48;
+		currSourceLen = 72;
+		currPos = 3;
+	}
+	else if (currPos == 3){
+		currSourceX = 108;
+		currSourceY = 180;
+		currSourceWid = 72;
+		currSourceLen = 48;
+		currPos = 4;
+	}
+	else {
+		currSourceX = 132;
+		currSourceY = 252;
+		currSourceWid = 48;
+		currSourceLen = 72;
+		currPos = 1;
+	}
+}
+
+function reposC(){
+	if (currPos == 1){
+		currSourceX = 204;
+		currSourceY = 12;
+		currSourceWid = 72;
+		currSourceLen = 48;
+		currPos = 2;
+	}
+	else if (currPos == 2){
+		currSourceX = 204;
+		currSourceY = 84;
+		currSourceWid = 48;
+		currSourceLen = 72;
+		currPos = 3;
+	}
+	else if (currPos == 3){
+		currSourceX = 204;
+		currSourceY = 180;
+		currSourceWid = 72;
+		currSourceLen = 48;
+		currPos = 4;
+	}
+	else {
+		currSourceX = 228;
+		currSourceY = 252;
+		currSourceWid = 48;
+		currSourceLen = 72;
 		currPos = 1;
 	}
 }
 
 function animate(){
-	console.log("4");
 	ctx.clearRect(0, 0, 240, 480);
 	draw();
 	move();
 }
 
 function draw(){
-	console.log("5");
 	canvas = document.getElementById('simple');
 	if (canvas.getContext){
 		ctx = canvas.getContext('2d');
 		img = new Image();
 		img.onload = function(){
-			ctx.drawImage(img, 12, 12, 72, 48, xPos, yPos, 72, 48);
+			ctx.drawImage(img, currSourceX, currSourceY, currSourceWid, currSourceLen, xPos, yPos, currSourceWid, currSourceLen);
 		};
 		img.src = 'sprites.png';
 	}
@@ -95,7 +180,6 @@ function draw(){
 }
 
 function move(){
-	console.log("6");
 	if (yPos < 431)
 		yPos += 5;
 }
