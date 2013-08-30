@@ -17,12 +17,54 @@ function setUp(){
 	xPos = 0;
 	yPos = 0;
 	xLen = 72;
-	currSourceX = 12;
-	currSourceY = 12;
-	currSourceWid = 72;
-	currSourceLen = 48;
-	currId = 1;
+	currId = 2;
 	currPos = 1;
+	initBlock();
+}
+
+function initBlock(){
+	if (currId == 1){
+		currSourceX = 12;
+		currSourceY = 12;
+		currSourceWid = 72;
+		currSourceLen = 48;	
+	}
+	else if (currId == 2){
+		currSourceX = 108;
+		currSourceY = 12;
+		currSourceWid = 72;
+		currSourceLen = 48;
+	}
+	else if (currId == 3){
+		currSourceX = 204;
+		currSourceY = 12;
+		currSourceWid = 72;
+		currSourceLen = 48;
+	}
+	else if (currId == 4){
+		currSourceX = 300;
+		currSourceY = 12;
+		currSourceWid = 72;
+		currSourceLen = 48;
+	}
+	else if (currId == 5){
+		currSourceX = 396;
+		currSourceY = 12;
+		currSourceWid = 96;
+		currSourceLen - 24;
+	}
+	else if (currId == 6){
+		currSourceX = 516;
+		currSourceY = 12;
+		currSourceWid = 48;
+		currSourceLen = 48;
+	}
+	else {
+		currSourceX = 588;
+		currSourceY = 12;
+		currSourceWid = 72;
+		currSourceLen = 48;
+	}
 }
 
 function animLoop(){
