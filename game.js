@@ -1,3 +1,4 @@
+var blockIds = new Array();
 var xPos;
 var yPos;
 var currSourceX;
@@ -14,9 +15,10 @@ function gameLoop(){
 }
 
 function setUp(){
+	blockIds = [1, 2, 3, 4, 5, 6, 7];
 	xPos = 72;
 	yPos = 0;
-	currId = 1;
+	currId = blockIds[Math.floor(Math.random() * blockIds.length)];
 	currPos = 1;
 	canMove = true;
 	initBlock();
