@@ -158,6 +158,61 @@ function reposC(){
 	}
 }
 
+function reposD(){
+	if (currPos == 1){
+		currSourceX = 300;
+		currSourceY = 12;
+		currSourceWid = 72;
+		currSourceLen = 48;
+		currPos = 2;
+	}
+	else {
+		currSourceX = 324;
+		currSourceY = 84;
+		currSourceWid = 48;
+		currSourceLen = 72;
+		currPos = 1;
+	}
+}
+
+function reposE(){
+	if (currPos == 1){
+		currSourceX = 396;
+		currSourceY = 12;
+		currSourceWid = 96;
+		currSourceLen = 24;
+		currPos = 2;
+	}
+	else {
+		currSourceX = 444;
+		currSourceY = 84;
+		currSourceWid = 24;
+		currSourceLen = 96;
+		currPos = 1;
+	}
+}
+
+function reposF(){
+	// intentionally empty
+}
+
+function reposG(){
+		if (currPos == 1){
+		currSourceX = 588;
+		currSourceY = 12;
+		currSourceWid = 72;
+		currSourceLen = 48;
+		currPos = 2;
+	}
+	else {
+		currSourceX = 612;
+		currSourceY = 84;
+		currSourceWid = 48;
+		currSourceLen = 72;
+		currPos = 1;
+	}
+}
+
 function animate(){
 	ctx.clearRect(0, 0, 240, 480);
 	draw();
