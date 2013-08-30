@@ -13,9 +13,9 @@ function gameLoop(){
 }
 
 function setUp(){
-	xPos = 0;
+	xPos = 72;
 	yPos = 0;
-	currId = 7;
+	currId = 3;
 	currPos = 1;
 	initBlock();
 }
@@ -80,14 +80,16 @@ function userKey(event){
 	switch(event.keyCode){
 	// left arrow
 	case 37:
-		if (xPos > 0){xPos += -24;}
+		if (xPos > 0) {xPos += -24;}
 		break;
 	// right arrow
 	case 39:
 		if (xPos < (240 - currSourceWid)) {xPos += 24;}
 		break;
 	// down arrow
-//	case 40:
+	case 40:
+		if (yPos < (480 - currSourceLen)) {yPos += 24;}
+		break;
 	// up arrow
 	case 38:
 		changePos();
