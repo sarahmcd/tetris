@@ -6,6 +6,7 @@ var currSourceWid;
 var currSourceLen;
 var currId;
 var currPos;
+var canMove;
 
 function gameLoop(){
 	setUp();
@@ -15,8 +16,9 @@ function gameLoop(){
 function setUp(){
 	xPos = 72;
 	yPos = 0;
-	currId = 3;
+	currId = 1;
 	currPos = 1;
+	canMove = true;
 	initBlock();
 }
 
@@ -71,29 +73,31 @@ function animLoop(){
 	img = new Image();
 	img.src = 'sprites.png';
 	img.onload = function(){
-		setInterval(animate, 140);
+		setInterval(animate, 100);
 		window.addEventListener('keydown', userKey, true);
 	}
 }
 
 function userKey(event){
-	switch(event.keyCode){
-	// left arrow
-	case 37:
-		if (xPos > 0) {xPos += -24;}
-		break;
-	// right arrow
-	case 39:
-		if (xPos < (240 - currSourceWid)) {xPos += 24;}
-		break;
-	// down arrow
-	case 40:
-		if (yPos < (480 - currSourceLen)) {yPos += 24;}
-		break;
-	// up arrow
-	case 38:
-		changePos();
-		break;
+	if (canMove == true){
+		switch(event.keyCode){
+		// left arrow
+		case 37:
+			if (xPos > 0) {xPos += -24;}
+			break;
+		// right arrow
+		case 39:
+			if (xPos < (240 - currSourceWid)) {xPos += 24;}
+			break;
+		// down arrow
+		case 40:
+			if (yPos < (480 - currSourceLen)) {yPos += 24;}
+			break;
+		// up arrow
+		case 38:
+			changePos();
+			break;
+		}
 	}
 }
 
@@ -138,23 +142,23 @@ function reposRed(){
 function reposYellow(){
 	if (currPos == 1){
 		currSourceX = 108;
-		currSourceY = 12;
-		currSourceWid = 72;
-		currSourceLen = 48;
+		currSourceY = 84;
+		currSourceWid = 48;
+		currSourceLen = 72;
 		currPos = 2;
 	}
 	else if (currPos == 2){
 		currSourceX = 108;
-		currSourceY = 84;
-		currSourceWid = 48;
-		currSourceLen = 72;
-		currPos = 3;
-	}
-	else if (currPos == 3){
-		currSourceX = 108;
 		currSourceY = 180;
 		currSourceWid = 72;
 		currSourceLen = 48;
+		currPos = 3;
+	}
+	else if (currPos == 3){
+		currSourceX = 132;
+		currSourceY = 252;
+		currSourceWid = 48;
+		currSourceLen = 72;
 		currPos = 4;
 	}
 	else {
@@ -166,23 +170,23 @@ function reposYellow(){
 function reposGreen(){
 	if (currPos == 1){
 		currSourceX = 204;
-		currSourceY = 12;
-		currSourceWid = 72;
-		currSourceLen = 48;
+		currSourceY = 84;
+		currSourceWid = 48;
+		currSourceLen = 72;
 		currPos = 2;
 	}
 	else if (currPos == 2){
 		currSourceX = 204;
-		currSourceY = 84;
-		currSourceWid = 48;
-		currSourceLen = 72;
-		currPos = 3;
-	}
-	else if (currPos == 3){
-		currSourceX = 204;
 		currSourceY = 180;
 		currSourceWid = 72;
 		currSourceLen = 48;
+		currPos = 3;
+	}
+	else if (currPos == 3){
+		currSourceX = 228;
+		currSourceY = 252;
+		currSourceWid = 48;
+		currSourceLen = 72;
 		currPos = 4;
 	}
 	else {
@@ -193,10 +197,10 @@ function reposGreen(){
 
 function reposAqua(){
 	if (currPos == 1){
-		currSourceX = 300;
-		currSourceY = 12;
-		currSourceWid = 72;
-		currSourceLen = 48;
+		currSourceX = 324;
+		currSourceY = 84;
+		currSourceWid = 48;
+		currSourceLen = 72;
 		currPos = 2;
 	}
 	else {
@@ -207,10 +211,10 @@ function reposAqua(){
 
 function reposBlue(){
 	if (currPos == 1){
-		currSourceX = 396;
-		currSourceY = 12;
-		currSourceWid = 96;
-		currSourceLen = 24;
+		currSourceX = 444;
+		currSourceY = 84;
+		currSourceWid = 24;
+		currSourceLen = 96;
 		currPos = 2;
 	}
 	else {
@@ -221,10 +225,10 @@ function reposBlue(){
 
 function reposMagenta(){
 		if (currPos == 1){
-		currSourceX = 588;
-		currSourceY = 12;
-		currSourceWid = 72;
-		currSourceLen = 48;
+		currSourceX = 612;
+		currSourceY = 84;
+		currSourceWid = 48;
+		currSourceLen = 72;
 		currPos = 2;
 	}
 	else {
@@ -255,6 +259,8 @@ function draw(){
 }
 
 function move(){
-	if (yPos < 431)
+	if (yPos < (480 - currSourceLen))
 		yPos += 5;
+	else
+		canMove = false;
 }
