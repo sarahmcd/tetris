@@ -1,4 +1,5 @@
-var blockIds = new Array();
+var blockIds = [1, 2, 3, 4, 5, 6, 7];
+var blocksDown = new Array();
 var xPos;
 var yPos;
 var currSourceX;
@@ -10,12 +11,11 @@ var currPos;
 var canMove;
 
 function gameLoop(){
-	setUp();
+	newBlock();
 	animLoop();
 }
 
-function setUp(){
-	blockIds = [1, 2, 3, 4, 5, 6, 7];
+function newBlock(){
 	xPos = 72;
 	yPos = 0;
 	currId = blockIds[Math.floor(Math.random() * blockIds.length)];
@@ -81,7 +81,7 @@ function animLoop(){
 }
 
 function userKey(event){
-	if (canMove == true){
+//	if (canMove == true){
 		switch(event.keyCode){
 		// left arrow
 		case 37:
@@ -100,7 +100,7 @@ function userKey(event){
 			changePos();
 			break;
 		}
-	}
+//	}
 }
 
 function changePos(){
@@ -263,6 +263,8 @@ function draw(){
 function move(){
 	if (yPos < (480 - currSourceLen))
 		yPos += 5;
-	else
-		canMove = false;
+	else {
+//		canMove = false
+		newBlock();
+	}
 }
