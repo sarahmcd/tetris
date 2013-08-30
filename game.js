@@ -71,7 +71,7 @@ function animLoop(){
 	canvas = document.getElementById('simple');
 	ctx = canvas.getContext('2d');
 	img = new Image();
-	img.src = 'sprites.png';
+	img.src = 'assets/sprites.png';
 	img.onload = function(){
 		setInterval(animate, 100);
 		window.addEventListener('keydown', userKey, true);
@@ -251,7 +251,7 @@ function draw(){
 		img.onload = function(){
 			ctx.drawImage(img, currSourceX, currSourceY, currSourceWid, currSourceLen, xPos, yPos, currSourceWid, currSourceLen);
 		};
-		img.src = 'sprites.png';
+		img.src = 'assets/sprites.png';
 	}
 	else {
 		alert('Sorry, canvas is not supported in your current browser.');

@@ -1,0 +1,73 @@
+-------------------------------------------------------------------------------------
+   TETRIS SPRITE POSITIONS
+-------------------------------------------------------------------------------------
+   created by: S. McDaniel
+   created on: 27 August 2013
+
+RED
+ position 1:
+	12, 12, 72, 48
+
+ position 2:
+	12, 84, 48, 72
+
+ position 3:
+	12, 180, 72, 48
+
+ position 4:
+	36, 252, 48, 72
+
+
+YELLOW
+ position 1:
+	108, 12, 72, 48
+
+ position 2:
+	108, 84, 48, 72
+
+ position 3:
+	108, 180, 72, 48
+
+ position 4:
+	132, 252, 48, 72
+
+
+GREEN
+ position 1:
+	204, 12, 72, 48
+
+ position 2:
+	204, 84, 48, 72
+
+ position 3:
+	204, 180, 72, 48
+
+ position 4:
+	228, 252, 48, 72
+
+
+AQUA
+ position 1:
+	300, 12, 72, 48
+
+ position 2:
+	324, 84, 48, 72
+
+
+BLUE
+ position 1:
+	396, 12, 96, 24
+ position 2:
+	444, 84, 24, 96
+
+
+PURPLE
+	516, 12, 48, 48
+
+
+MAGENTA
+ position 1:
+	588, 12, 72, 48
+
+ position 2:
+	612, 84, 48, 72
