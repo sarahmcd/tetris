@@ -1,6 +1,5 @@
 var xPos;
 var yPos;
-var xLen;
 var currSourceX;
 var currSourceY;
 var currSourceWid;
@@ -16,8 +15,7 @@ function gameLoop(){
 function setUp(){
 	xPos = 0;
 	yPos = 0;
-	xLen = 72;
-	currId = 2;
+	currId = 7;
 	currPos = 1;
 	initBlock();
 }
@@ -51,7 +49,7 @@ function initBlock(){
 		currSourceX = 396;
 		currSourceY = 12;
 		currSourceWid = 96;
-		currSourceLen - 24;
+		currSourceLen = 24;
 	}
 	else if (currId == 6){
 		currSourceX = 516;
@@ -86,7 +84,7 @@ function userKey(event){
 		break;
 	// right arrow
 	case 39:
-		if (xPos < (240 - xLen)) {xPos += 24;}
+		if (xPos < (240 - currSourceWid)) {xPos += 24;}
 		break;
 	// down arrow
 //	case 40:
@@ -98,16 +96,16 @@ function userKey(event){
 }
 
 function changePos(){
-	if (currId == 1) {reposA();}
-	if (currId == 2) {reposB();}
-	if (currId == 3) {reposC();}
-	if (currId == 4) {reposD();}
-	if (currId == 5) {reposE();}
-	if (currId == 6) {reposF();}
-	if (currId == 7) {reposG();}
+	if (currId == 1) {reposRed();}
+	else if (currId == 2) {reposYellow();}
+	else if (currId == 3) {reposGreen();}
+	else if (currId == 4) {reposAqua();}
+	else if (currId == 5) {reposBlue();}
+	else if (currId == 7) {reposMagenta();}
+	else {return;}
 }
 
-function reposA(){
+function reposRed(){
 	if (currPos == 1){
 		currSourceX = 12;
 		currSourceY = 84;
@@ -138,7 +136,7 @@ function reposA(){
 	}
 }
 
-function reposB(){
+function reposYellow(){
 	if (currPos == 1){
 		currSourceX = 108;
 		currSourceY = 12;
@@ -169,7 +167,7 @@ function reposB(){
 	}
 }
 
-function reposC(){
+function reposGreen(){
 	if (currPos == 1){
 		currSourceX = 204;
 		currSourceY = 12;
@@ -200,7 +198,7 @@ function reposC(){
 	}
 }
 
-function reposD(){
+function reposAqua(){
 	if (currPos == 1){
 		currSourceX = 300;
 		currSourceY = 12;
@@ -217,7 +215,7 @@ function reposD(){
 	}
 }
 
-function reposE(){
+function reposBlue(){
 	if (currPos == 1){
 		currSourceX = 396;
 		currSourceY = 12;
@@ -234,11 +232,7 @@ function reposE(){
 	}
 }
 
-function reposF(){
-	// intentionally empty
-}
-
-function reposG(){
+function reposMagenta(){
 		if (currPos == 1){
 		currSourceX = 588;
 		currSourceY = 12;
