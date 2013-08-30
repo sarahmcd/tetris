@@ -130,11 +130,8 @@ function reposRed(){
 		currPos = 4;
 	}
 	else {
-		currSourceX = 12;
-		currSourceY = 12;
-		currSourceWid = 72;
-		currSourceLen = 48;
 		currPos = 1;
+		initBlock();
 	}
 }
 
@@ -161,10 +158,7 @@ function reposYellow(){
 		currPos = 4;
 	}
 	else {
-		currSourceX = 132;
-		currSourceY = 252;
-		currSourceWid = 48;
-		currSourceLen = 72;
+		initBlock();
 		currPos = 1;
 	}
 }
@@ -192,10 +186,7 @@ function reposGreen(){
 		currPos = 4;
 	}
 	else {
-		currSourceX = 228;
-		currSourceY = 252;
-		currSourceWid = 48;
-		currSourceLen = 72;
+		initBlock();
 		currPos = 1;
 	}
 }
@@ -209,10 +200,7 @@ function reposAqua(){
 		currPos = 2;
 	}
 	else {
-		currSourceX = 324;
-		currSourceY = 84;
-		currSourceWid = 48;
-		currSourceLen = 72;
+		initBlock();
 		currPos = 1;
 	}
 }
@@ -226,10 +214,7 @@ function reposBlue(){
 		currPos = 2;
 	}
 	else {
-		currSourceX = 444;
-		currSourceY = 84;
-		currSourceWid = 24;
-		currSourceLen = 96;
+		initBlock();
 		currPos = 1;
 	}
 }
@@ -243,10 +228,7 @@ function reposMagenta(){
 		currPos = 2;
 	}
 	else {
-		currSourceX = 612;
-		currSourceY = 84;
-		currSourceWid = 48;
-		currSourceLen = 72;
+		initBlock();
 		currPos = 1;
 	}
 }
