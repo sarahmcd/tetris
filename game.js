@@ -1,5 +1,5 @@
 var blockIds = [1, 2, 3, 4, 5, 6, 7];
-var blocksDown = new Array();
+var blocks = new Array();
 var xPos;
 var yPos;
 var currSourceX;
@@ -251,6 +251,9 @@ function draw(){
 		ctx = canvas.getContext('2d');
 		img = new Image();
 		img.onload = function(){
+			for (var i = 0; i < blocks.length; i++){
+				ctx.drawImage(img, blocks[i].xSource, blocks[i].ySource, blocks[i].wid, blocks[i].len, blocks[i].xPos, blocks[i].yPos, blocks[i].wid, blocks[i].len);
+			}
 			ctx.drawImage(img, currSourceX, currSourceY, currSourceWid, currSourceLen, xPos, yPos, currSourceWid, currSourceLen);
 		};
 		img.src = 'assets/sprites.png';
@@ -265,6 +268,20 @@ function move(){
 		yPos += 5;
 	else {
 //		canMove = false
+		stick();
 		newBlock();
 	}
+}
+
+function stick(){
+	var block = new Object();
+	
+	block.xPos = xPos;
+	block.yPos = yPos;
+	block.xSource = currSourceX;
+	block.ySource = currSourceY;
+	block.wid = currSourceWid;
+	block.len = currSourceLen;
+	blocks.push(block);
+	console.log("done");
 }
