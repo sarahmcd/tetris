@@ -1,5 +1,6 @@
 var blockIds = [1, 2, 3, 4, 5, 6, 7];
 var blocks = new Array();
+var occupied = new Array();
 var xPos;
 var yPos;
 var currSourceX;
@@ -264,13 +265,22 @@ function draw(){
 }
 
 function move(){
-	if (yPos < (480 - currSourceLen))
+	if (nextClear() == true)
 		yPos += 5;
 	else {
 //		canMove = false
 		stick();
 		newBlock();
 	}
+}
+
+function nextClear(){
+	if (yPos < (480 - currSourceLen)){
+		// block below?
+		return true;
+	}
+	else
+		return false;
 }
 
 function stick(){
@@ -283,5 +293,5 @@ function stick(){
 	block.wid = currSourceWid;
 	block.len = currSourceLen;
 	blocks.push(block);
-	console.log("done");
+	occupied
 }
