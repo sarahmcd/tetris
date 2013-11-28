@@ -1,74 +1,27 @@
-var blockIds = [1, 2, 3, 4, 5, 6, 7];
-var blocks = new Array();
-var occupied = new Array();
-var xPos;
-var yPos;
-var currSourceX;
-var currSourceY;
-var currSourceWid;
-var currSourceLen;
-var currId;
-var currPos;
-var canMove;
-
 function gameLoop(){
+	setStorage();
 	newBlock();
 	animLoop();
+}
+
+function setStorage(){
+	numCols = 24;
+	for (i = 0; i < numCols; i++){
+		lowRow[i] = 0;
+	}
 }
 
 function newBlock(){
 	xPos = 72;
 	yPos = 0;
-	currId = blockIds[Math.floor(Math.random() * blockIds.length)];
+	// randomly select a block type for current piece
+	currId = 1;
+//	currId = blockIds[Math.floor(Math.random() * blockIds.length)];
 	currPos = 1;
 	canMove = true;
 	initBlock();
 }
 
-function initBlock(){
-	if (currId == 1){
-		currSourceX = 12;
-		currSourceY = 12;
-		currSourceWid = 72;
-		currSourceLen = 48;	
-	}
-	else if (currId == 2){
-		currSourceX = 108;
-		currSourceY = 12;
-		currSourceWid = 72;
-		currSourceLen = 48;
-	}
-	else if (currId == 3){
-		currSourceX = 204;
-		currSourceY = 12;
-		currSourceWid = 72;
-		currSourceLen = 48;
-	}
-	else if (currId == 4){
-		currSourceX = 300;
-		currSourceY = 12;
-		currSourceWid = 72;
-		currSourceLen = 48;
-	}
-	else if (currId == 5){
-		currSourceX = 396;
-		currSourceY = 12;
-		currSourceWid = 96;
-		currSourceLen = 24;
-	}
-	else if (currId == 6){
-		currSourceX = 516;
-		currSourceY = 12;
-		currSourceWid = 48;
-		currSourceLen = 48;
-	}
-	else {
-		currSourceX = 588;
-		currSourceY = 12;
-		currSourceWid = 72;
-		currSourceLen = 48;
-	}
-}
 
 function animLoop(){
 	canvas = document.getElementById('simple');
@@ -76,7 +29,7 @@ function animLoop(){
 	img = new Image();
 	img.src = 'assets/sprites.png';
 	img.onload = function(){
-		setInterval(animate, 100);
+		setInterval(animate, 50);
 		window.addEventListener('keydown', userKey, true);
 	}
 }
@@ -94,7 +47,7 @@ function userKey(event){
 			break;
 		// down arrow
 		case 40:
-			if (yPos < (480 - currSourceLen)) {yPos += 24;}
+			if (yPos + 24 < (480 - currSourceLen)) {yPos += 25;}
 			break;
 		// up arrow
 		case 38:
@@ -112,132 +65,6 @@ function changePos(){
 	else if (currId == 5) {reposBlue();}
 	else if (currId == 7) {reposMagenta();}
 	else {return;}
-}
-
-function reposRed(){
-	if (currPos == 1){
-		currSourceX = 12;
-		currSourceY = 84;
-		currSourceWid = 48;
-		currSourceLen = 72;
-		currPos = 2;
-	}
-	else if (currPos == 2){
-		currSourceX = 12;
-		currSourceY = 180;
-		currSourceWid = 72;
-		currSourceLen = 48;
-		currPos = 3;
-	}
-	else if (currPos == 3){
-		currSourceX = 36;
-		currSourceY = 252;
-		currSourceWid = 48;
-		currSourceLen = 72;
-		currPos = 4;
-	}
-	else {
-		currPos = 1;
-		initBlock();
-	}
-}
-
-function reposYellow(){
-	if (currPos == 1){
-		currSourceX = 108;
-		currSourceY = 84;
-		currSourceWid = 48;
-		currSourceLen = 72;
-		currPos = 2;
-	}
-	else if (currPos == 2){
-		currSourceX = 108;
-		currSourceY = 180;
-		currSourceWid = 72;
-		currSourceLen = 48;
-		currPos = 3;
-	}
-	else if (currPos == 3){
-		currSourceX = 132;
-		currSourceY = 252;
-		currSourceWid = 48;
-		currSourceLen = 72;
-		currPos = 4;
-	}
-	else {
-		initBlock();
-		currPos = 1;
-	}
-}
-
-function reposGreen(){
-	if (currPos == 1){
-		currSourceX = 204;
-		currSourceY = 84;
-		currSourceWid = 48;
-		currSourceLen = 72;
-		currPos = 2;
-	}
-	else if (currPos == 2){
-		currSourceX = 204;
-		currSourceY = 180;
-		currSourceWid = 72;
-		currSourceLen = 48;
-		currPos = 3;
-	}
-	else if (currPos == 3){
-		currSourceX = 228;
-		currSourceY = 252;
-		currSourceWid = 48;
-		currSourceLen = 72;
-		currPos = 4;
-	}
-	else {
-		initBlock();
-		currPos = 1;
-	}
-}
-
-function reposAqua(){
-	if (currPos == 1){
-		currSourceX = 324;
-		currSourceY = 84;
-		currSourceWid = 48;
-		currSourceLen = 72;
-		currPos = 2;
-	}
-	else {
-		initBlock();
-		currPos = 1;
-	}
-}
-
-function reposBlue(){
-	if (currPos == 1){
-		currSourceX = 444;
-		currSourceY = 84;
-		currSourceWid = 24;
-		currSourceLen = 96;
-		currPos = 2;
-	}
-	else {
-		initBlock();
-		currPos = 1;
-	}
-}
-
-function reposMagenta(){
-		if (currPos == 1){
-		currSourceX = 612;
-		currSourceY = 84;
-		currSourceWid = 48;
-		currSourceLen = 72;
-		currPos = 2;
-	}
-	else {
-		initBlock();
-		currPos = 1;
-	}
 }
 
 function animate(){
@@ -275,7 +102,7 @@ function move(){
 }
 
 function nextClear(){
-	if (yPos < (480 - currSourceLen)){
+	if (yPos + 5 < (480 - currSourceLen)){
 		// block below?
 		return true;
 	}
@@ -285,6 +112,8 @@ function nextClear(){
 
 function stick(){
 	var block = new Object();
+	var row;
+	var col;
 	
 	block.xPos = xPos;
 	block.yPos = yPos;
@@ -293,5 +122,4 @@ function stick(){
 	block.wid = currSourceWid;
 	block.len = currSourceLen;
 	blocks.push(block);
-	occupied
 }
