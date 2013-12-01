@@ -13,8 +13,10 @@ var currId;
 var currPos;
 var canMove;
 
+initRed();
+
 function initBlock(){
-//	initRed();
+	
 	if (currId == 1){
 		currSourceX = 12;
 		currSourceY = 12;
@@ -60,10 +62,10 @@ function initBlock(){
 }
 
 function initRed(){
-	pos1 = new Object();
-	pos2 = new Object();
-	pos3 = new Object();
-	pos4 = new Object();
+	var pos1 = new Object();
+	var pos2 = new Object();
+	var pos3 = new Object();
+	var pos4 = new Object();
 
 	pos1.sourceX = 12;
 	pos1.sourceY = 12;
@@ -89,29 +91,29 @@ function initRed(){
 	red.push(pos2);
 	red.push(pos3);
 	red.push(pos4);
-	console.log(red);
+	console.log(red[1].sourceX);
 }
 
 function reposRed(){
 	if (currPos == 1){
-		currSourceX = 12;
-		currSourceY = 84;
-		currSourceWid = 48;
-		currSourceLen = 72;
+		currSourceX = red[1].sourceX;
+		currSourceY = red[1].sourceY;
+		currSourceWid = red[1].sourceWid;
+		currSourceLen = red[1].sourceLen;
 		currPos = 2;
 	}
 	else if (currPos == 2){
-		currSourceX = 12;
-		currSourceY = 180;
-		currSourceWid = 72;
-		currSourceLen = 48;
+		currSourceX = red[2].sourceX;
+		currSourceY = red[2].sourceY;
+		currSourceWid = red[2].sourceWid;
+		currSourceLen = red[2].sourceLen;
 		currPos = 3;
 	}
 	else if (currPos == 3){
-		currSourceX = 36;
-		currSourceY = 252;
-		currSourceWid = 48;
-		currSourceLen = 72;
+		currSourceX = red[3].sourceX;
+		currSourceY = red[3].sourceY;
+		currSourceWid = red[3].sourceWid;
+		currSourceLen = red[3].sourceLen;
 		currPos = 4;
 	}
 	else {
