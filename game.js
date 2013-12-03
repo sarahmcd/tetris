@@ -47,7 +47,7 @@ function userKey(event){
 			break;
 		// down arrow
 		case 40:
-			if (yPos + 24 < (480 - currSourceLen)) {yPos += 25;}
+			if (yPos + 24 < (480 - currSourceLen)) {yPos += 24;}
 			break;
 		// up arrow
 		case 38:
@@ -93,7 +93,7 @@ function draw(){
 
 function move(){
 	if (nextClear() == true)
-		yPos += 5;
+		yPos += 6;
 	else {
 //		canMove = false
 		stick();
@@ -102,7 +102,9 @@ function move(){
 }
 
 function nextClear(){
-	if (yPos + 5 < (480 - currSourceLen)){
+	console.log(currSourceLen);
+	console.log(yPos);
+	if (yPos < (480 - currSourceLen)){
 		// block below?
 		return true;
 	}
